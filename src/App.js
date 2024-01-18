@@ -1,17 +1,28 @@
 import React from "react";
 
-function Food({ fav }) {
-  return <h1>{fav}도 먹고싶고</h1>;
+function Food({ name, picture }) {
+  return (<div>
+    <h2>I like {name}</h2>
+    <img src={picture} />
+  </div>);
 }
+
+const foodILike = [
+  {
+  name: "Kimchi",
+  image: "https://kstory365.files.wordpress.com/2015/01/kimchi-01-cabbage.jpg"
+  },
+  {
+  name: "samgyetang",
+  image: "https://img.seoul.co.kr//img/upload/2019/07/25/SSI_20190725184016.jpg"
+  }
+]
 
 function App() {
   return (
     <div className="App">
       <h1>너무 배고픈데</h1>
-      <Food fav="닭갈비" />
-      <Food fav="마라탕" />
-      <Food fav="순대국" />
-      <Food fav="마제소바" />
+      {foodILike.map(dish => <Food name={dish.name} picture={dish.image} />)}
       <h1>그냥 전부 내 입으로.</h1>
     </div>
   );
